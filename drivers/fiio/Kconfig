@@ -1,0 +1,132 @@
+menuconfig FIIO_M5
+	bool "FiiO Hardware Platform ,Product for M5"
+	
+choice
+	bool "FiiO M5 Board Select"
+	depends on FIIO_M5
+	default M5_BORAD_1_0629
+	help
+		FiiO M5 SCH change,so usb this to select which version.
+config M5_BORAD_1_0629
+	boolean "The First Design Board 2018-06-29"
+	help
+	    FiiO M5 first design borad.
+config M5_BORAD_2_0910
+	boolean "The Second Design Board 2018-09-10"
+	help
+		FiiO M5 second design borad
+		1、add TUSB320 USB check CC chip
+		2、change usb dete io 
+endchoice
+
+#config BOARD_HAS_NO_DETE_FACILITY
+#	bool "BOARD_HAS_NO_DETE_FACILITY"
+#	depends on FIIO_M5
+#	help
+#	  Generic fiio BOARD_HAS_NO_DETE_FACILITY build to module control interface.
+	  
+config FIIO_SOUND_BUILD_MODULE
+	bool "Fiio sound card build to module"
+	depends on FIIO_M5
+	help
+	  Generic fiio sound card build to module control interface.
+
+config FIIO_TP_BUILD_AS_TOUCH
+	bool "Fiio tp build as touch"
+	depends on FIIO_M5
+	help
+	  Generic fiio tp build as touch interface.
+	 
+	  
+config FIIO_DWC2_BUILD_MODULE
+	bool "Fiio dwc2 build module"
+	depends on FIIO_M5
+	help
+	  Generic fiio dwc2 build module interface.
+	  
+config FIIO_DEBUG_ADB_AXP
+	bool "Fiio debug adb and axp module"
+	depends on FIIO_M5
+	help
+	  Generic fiio debug interface.
+
+config FIIO_DEBUG
+	tristate "Fiio debug module"
+	depends on FIIO_M5
+	help
+	  Generic fiio debug interface.
+
+config FIIO_SENSORS_MMA865X
+	tristate "Fiio sensors mma865x module"
+	depends on FIIO_M5
+	help
+	  Generic fiio sensors mma865x interface.
+
+config FIIO_PLAYER_CHECK
+	tristate "Fiio player mode check module"
+	depends on FIIO_M5
+	help
+	  Generic fiio player mode check interface.
+
+config FIIO_IO_CTRL
+	tristate "Fiio io ctrl module"
+	depends on FIIO_M5
+	help
+	  Generic fiio io ctrl interface.
+
+config FIIO_LCD_ROTATE_90
+	bool "Fiio lcd rotate 90 module"
+	depends on FIIO_M5
+	help
+	  Generic fiio lcd rotate 90 interface.
+
+
+config FIIO_LCD_DEBUG
+	bool "Fiio lcd debug module"
+	depends on FIIO_M5
+	help
+	  Generic fiio lcd debug interface.
+
+config FIIO_SENSORS_LIS3DH
+	tristate "Fiio sensors lis3dh module"
+	depends on FIIO_M5
+	help
+	  Generic fiio sensors lis3dh interface.
+
+config FIIO_CC_TUSB320
+	tristate "Fiio CC TUSB320 module"
+	depends on FIIO_M5
+	depends on M5_BORAD_2_0910
+	help
+	  Generic fiio CC TUSB320 interface.
+
+config FIIO_CC_SGM7220
+	bool "Fiio FIIO_CC_SGM7220 module"
+	depends on FIIO_CC_TUSB320
+	help
+	  Generic fiio FIIO_CC_SGM7220 build module interface.
+
+config FIIO_SENSORS_LIS3DSH
+	tristate "Fiio sensors lis3dsh module"
+	depends on FIIO_M5
+	help
+	  Generic fiio sensors lis3dsh interface.
+
+config FIIO_SENSORS_STK8323
+	tristate "Fiio sensors STK8323 module"
+	depends on FIIO_M5
+	help
+	  Generic fiio sensors STK8323 interface.
+	  
+config FIIO_SENSORS_STK832X
+	tristate "Fiio sensors STK832X module"
+	depends on FIIO_M5
+	help
+	  Generic fiio sensors STK832X interface.
+	    
+config FIIO_AUTO_ENTER_BT_MODE
+	bool "Fiio auto enter bt mode for test"
+	depends on FIIO_M5
+	help
+	  Generic Fiio auto enter bt mode for test interface.
+	  
